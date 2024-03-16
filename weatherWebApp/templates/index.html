@@ -14,21 +14,21 @@
         <div class="widget">
             <div class="left">
                 <img id="icon" class="icon" src="images/03n@2x.png" >
-                <h4 class="weather-state" id="weather_state">{{data.description}}</h4>
+                <h4 class="weather-state" id="weather_state">sunny</h4>
             </div>
 
             <div class="right">
                 <h4 class="city" id="city_name">Birmingham</h4>
-                <h5 class="degree" id="temp">{{data.temperature}}C</h5>
+                <h5 class="degree" id="temp">35C</h5>
             </div>
             <div class="bottom">
                 <form method="get" action="/">
                     {% csrf_token %}
                     <div>
-                        <h3>Pressure <span id="pressure">{{data.pressure}}</span>hPa</h3>
+                        <h3>Pressure <span id="pressure">1000</span>hPa</h3>
                     </div>
                     <div class="btn">
-                        <button type="submit">Know pressure in Birmingham</button>
+                        <button type="submit" onclick="fetchWeatherData()">Know pressure in Birmingham</button>
                     </div>
                 </form>
             </div>
@@ -37,6 +37,7 @@
         </div>
     </div>
 
+    <script src="{% static 'script.js' %}"></script>
 
 
 </body>
