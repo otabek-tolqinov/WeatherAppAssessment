@@ -55,7 +55,7 @@ def get_weather_by_city(request, city):
                 "updated_at": weather_info.updated_at
             }
             # Return the serialized data as a JSON response
-            return JsonResponse([serialized_data])
+            return JsonResponse(serialized_data)
         else:
             return JsonResponse({"error": "Weather information not found for the specified city"}, status=404)
     else:
