@@ -1,7 +1,6 @@
 Django~=5.0.3
 requests~=2.31.0
 djangorestframework~=3.14.0
-python~=3.11.7
 gunicorn~=21.2.0
 dj-database-url~=2.1.0
 
