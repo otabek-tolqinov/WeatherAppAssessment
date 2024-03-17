@@ -15,8 +15,8 @@ const API_KEY = "78a96a8c1b99d70f3cf7f1659c3961ca";
 var city_name = "Birmingham";
 
 
-function fetchWeatherData(event) {
-  event.preventDefault();
+function fetchWeatherData() {
+
 
   fetch(`https://weatherappassessment.onrender.com/get-weather-by-city/Birmingham/`)
     .then(response => response.json())
