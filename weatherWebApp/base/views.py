@@ -9,9 +9,11 @@ from .models import WeatherData
 
 API_KEY = "ade9f4cabec74e36b585f951ace85a05"
 
+
 def send_data(request):
-    if request.method == "GET":
-        return render(request, "index.html")
+
+    return render(request, "index.html")
+
 
 def get_weather_by_city(request, city=None):
     # Query the database for WeatherData objects with the given city_name
