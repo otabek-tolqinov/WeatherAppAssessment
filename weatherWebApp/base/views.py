@@ -10,15 +10,15 @@ from .models import WeatherData
 API_KEY = "ade9f4cabec74e36b585f951ace85a05"
 
 
-def send_data(request):
+async def send_data(request):
 
     return render(request, "index.html")
 
 
-def get_weather_by_city(request, city=None):
+async def get_weather_by_city(request, city=None):
     # Query the database for WeatherData objects with the given city_name
 
-    city_name = "Birmingham"
+    city_name = city
 
     if city_name:
         # Query the database for WeatherInfo objects with the given city name
