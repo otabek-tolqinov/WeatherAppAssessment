@@ -21,6 +21,8 @@ function fetchWeatherData() {
   fetch(`https://weatherappassessment.onrender.com/get-weather-by-city/Birmingham/`)
     .then(response => response.json())
     .then(response => {
+    console.log(response)
+    }
     document.getElementById("weather_state").innerHTML = response.description;
 
 
