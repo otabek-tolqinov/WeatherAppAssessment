@@ -29,7 +29,7 @@ function fetchWeatherData() {
     document.getElementById("pressure").innerHTML=response['pressure'];
     document.getElementById("icon").src = `https://openweathermap.org/img/wn/${response['icon']}@2x.png`;
 
-      /
+
     })
     .catch(err => {
       console.log(err);
