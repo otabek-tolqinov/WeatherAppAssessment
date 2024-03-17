@@ -6,7 +6,7 @@ let get_day = getdate.getDate();
 let get_year = getdate.getFullYear();
 let formatted_time = `${get_hours}:${get_minutes}`;
 let dateHTML = `<p>${get_month}/${get_day}/${get_year}</p>`;
-document.getElementById("dateContainer").innerHTML = dateHTML;
+
 
 
 
