@@ -13,7 +13,7 @@ API_KEY = "ade9f4cabec74e36b585f951ace85a05"
 def get_weather_by_city(request, city=None):
     # Query the database for WeatherData objects with the given city_name
     if city:
-        city_name = city
+        city_name = "Birmingham"
 
         if city_name:
             # Query the database for WeatherInfo objects with the given city name
