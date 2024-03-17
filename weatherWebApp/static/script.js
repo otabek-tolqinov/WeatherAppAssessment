@@ -24,7 +24,7 @@ function fetchWeatherData() {
     document.getElementById("weather_state").innerHTML = response['description'];
 
 
-    document.getElementById("temp").innerHTML=response['temp'];
+    document.getElementById("temp").innerHTML=response['temperature'];
 
     document.getElementById("pressure").innerHTML=response['pressure'];
     document.getElementById("icon").src = `https://openweathermap.org/img/wn/${response['icon']}@2x.png`;
