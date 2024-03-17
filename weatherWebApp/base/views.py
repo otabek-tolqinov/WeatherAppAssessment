@@ -39,27 +39,7 @@ def get_weather_by_city(request, city=None):
 
     else:
         if request.method == "GET":
-            city = "Birmingham"
-
-            api_url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'
-            response = requests.get(api_url)
-
-            if response.status_code == 200:
-                weather_data = response.json()
-                description = weather_data['weather'][0]['description']
-                temperature = weather_data['main']['temp']
-                pressure = weather_data['main']['pressure']
-                icon = weather_data['weather'][0]['icon']
-
-                WeatherData.objects.create(
-                    description=description,
-                    temperature=temperature,
-                    pressure=pressure,
-                    icon=icon,
-                    city=city
-                )
-
-        return render(request,"index.html")
+            return render(request,"index.html")
 
 
 
