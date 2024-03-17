@@ -18,11 +18,11 @@ var city_name = "Birmingham";
 function fetchWeatherData() {
 
 
+
+function fetchWeatherData() {
   fetch(`https://weatherappassessment.onrender.com/get-weather-by-city/Birmingham/`)
     .then(response => response.json())
     .then(response => {
-    console.log(response)
-    }
     document.getElementById("weather_state").innerHTML = response.description;
 
 
@@ -31,7 +31,9 @@ function fetchWeatherData() {
     document.getElementById("pressure").innerHTML=response.pressure;
     document.getElementById("icon").src = `https://openweathermap.org/img/wn/${response.icon}@2x.png`;
 
-
+      // lon = response[0]["lon"];
+      // lat = response[0]["lat"];
+      // find_temp(lat, lon);
     })
     .catch(err => {
       console.log(err);
@@ -39,8 +41,3 @@ function fetchWeatherData() {
 
 
 }
-
-
-
-
-
