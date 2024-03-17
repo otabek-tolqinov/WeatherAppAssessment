@@ -9,37 +9,39 @@ from .models import WeatherData
 
 API_KEY = "ade9f4cabec74e36b585f951ace85a05"
 
+def send_data(request):
+    if request.method == "GET":
+        return render(request, "index.html")
 
 def get_weather_by_city(request, city=None):
     # Query the database for WeatherData objects with the given city_name
-    if city:
-        city_name = "Birmingham"
 
-        if city_name:
-            # Query the database for WeatherInfo objects with the given city name
-            weather_info = WeatherData.objects.all().first()
+    city_name = "Birmingham"
 
-            if weather_info:
-                # Serialize the retrieved data
-                serialized_data = {
-                    "city": weather_info.city,
-                    "description": weather_info.description,
-                    "temperature": weather_info.temperature,
-                    "pressure": weather_info.pressure,
-                    "icon": weather_info.icon,
-                    "updated_at": weather_info.updated_at
-                }
-                # Return the serialized data as a JSON response
-                return JsonResponse(serialized_data)
-            else:
-                return JsonResponse({"error": "Weather information not found for the specified city"}, status=404)
+    if city_name:
+        # Query the database for WeatherInfo objects with the given city name
+        weather_info = WeatherData.objects.all().first()
+
+        if weather_info:
+            # Serialize the retrieved data
+            serialized_data = {
+                "city": weather_info.city,
+                "description": weather_info.description,
+                "temperature": weather_info.temperature,
+                "pressure": weather_info.pressure,
+                "icon": weather_info.icon,
+                "updated_at": weather_info.updated_at
+            }
+            # Return the serialized data as a JSON response
+            return JsonResponse(serialized_data)
         else:
-            return JsonResponse({"error": "No city name provided"}, status=400)
-
-
+            return JsonResponse({"error": "Weather information not found for the specified city"}, status=404)
     else:
-        if request.method == "GET":
-            return render(request,"index.html")
+        return JsonResponse({"error": "No city name provided"}, status=400)
+
+
+
+
 
 
 
