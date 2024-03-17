@@ -25,7 +25,7 @@ function knowPressure() {
 }
 
 function fetchWeatherData() {
-  fetch(`http://127.0.0.1:8080/get-weather-by-city/Birmingham/`)
+  fetch(`https://weatherappassessment.onrender.com/get-weather-by-city/Birmingham/`)
     .then(response => response.json())
     .then(response => {
     document.getElementById("weather_state").innerHTML = response.description;
