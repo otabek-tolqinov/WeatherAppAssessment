@@ -15,8 +15,6 @@ const API_KEY = "78a96a8c1b99d70f3cf7f1659c3961ca";
 var city_name = "Birmingham";
 
 
-function fetchWeatherData() {
-
 
 
 function fetchWeatherData() {
