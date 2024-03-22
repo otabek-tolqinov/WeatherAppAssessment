@@ -22,13 +22,13 @@
                 <h5 class="degree" id="temp">35C</h5>
             </div>
             <div class="bottom">
-                <form method="get" action="/">
+                <form id="weatherForm" method="get" action="/">
                     {% csrf_token %}
                     <div>
                         <h3>Pressure <span id="pressure">1000</span>hPa</h3>
                     </div>
                     <div class="btn">
-                        <button type="submit" onclick="fetchWeatherData()">Know pressure in Birmingham</button>
+                        <button type="button" onclick="fetchWeatherData()">Know pressure in Birmingham</button>
                     </div>
                 </form>
             </div>
