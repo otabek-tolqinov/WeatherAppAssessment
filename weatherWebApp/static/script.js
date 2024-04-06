@@ -26,7 +26,7 @@ document.getElementById("weatherForm").addEventListener("submit", function(event
 //const cacheTemp=localStorage.getItem('temp');
 //const cachePressure=localStorage.getItem('pressure');
 //const cacheState=localStorage.getItem('weather_state');
-let city_name = document.getElementById("cityInput")
+let city_name = document.getElementById("cityInput").value
 
 function fetchWeatherData() {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`)
