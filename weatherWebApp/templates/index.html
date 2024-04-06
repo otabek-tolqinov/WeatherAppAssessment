@@ -21,9 +21,11 @@
                 <h4 class="city" id="city_name">Birmingham</h4>
                 <h5 class="degree" id="temp">35C</h5>
             </div>
+
             <div class="bottom">
                 <form id="weatherForm" method="get" action="/">
                     {% csrf_token %}
+                    <input type="text" id="cityInput" placeholder="Enter city name">
                     <div>
                         <h3>Pressure <span id="pressure">1000</span>hPa</h3>
                     </div>
@@ -32,6 +34,8 @@
                     </div>
                 </form>
             </div>
+
+
 
 
         </div>

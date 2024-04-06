@@ -123,3 +123,31 @@ body, html {
     background-color: #2980b9;
     transform: scale(1.05);
 }
+
+/* Add styles for the input field */
+#cityInput {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style the button to be consistent */
+.btn button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
