@@ -10,6 +10,9 @@ document.getElementById("weatherForm").addEventListener("submit", function(event
 let city_name = document.getElementById("cityInput").value
 
 function fetchWeatherData() {
+
+  city_name = document.getElementById("cityInput").value
+
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`)
     .then(response => response.json())
     .then(response => {
