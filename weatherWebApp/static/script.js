@@ -1,5 +1,5 @@
 
-let API_KEY = "78a96a8c1b99d70f3cf7f1659c3961ca"
+let API_KEY = "ade9f4cabec74e36b585f951ace85a05"
 
 document.getElementById("weatherForm").addEventListener("submit", function(event) {
     event.preventDefault();
