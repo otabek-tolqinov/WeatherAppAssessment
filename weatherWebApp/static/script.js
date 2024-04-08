@@ -24,7 +24,7 @@ function fetchWeatherData() {
   } else {
     city_name = document.getElementById("cityInput").value
 
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`)
+  fetch(`https://weatherappassessment.onrender.com/get-weather-by-city/${city_name}/`)
     .then(response => response.json())
     .then(response => {
       console.log(response);

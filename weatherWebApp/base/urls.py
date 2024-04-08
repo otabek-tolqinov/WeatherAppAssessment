@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.send_data, name="send"),
-    # path('get-weather-by-city/<str:city>/', views.get_weather_by_city, name='get_weather_by_city'),
+    path('get-weather-by-city/<str:city>/', views.get_weather_by_city, name='get_weather_by_city'),
 ]
