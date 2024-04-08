@@ -25,7 +25,9 @@ def get_weather_by_city(request, city=None):
     if city:
         # Query the database for WeatherInfo objects with the given city name
         weather_info = WeatherData.objects.all().first()
-        if datetime.now() - weather_info.updated_at > timedelta(days=1):
+        current_time = datetime.now(weather_info.updated_at.tzinfo)
+
+        if current_time - weather_info.updated_at > timedelta(days=1):
             API_URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'
             try:
                 response = requests.get(API_URL)
