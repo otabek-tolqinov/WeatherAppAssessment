@@ -7,11 +7,22 @@ document.getElementById("weatherForm").addEventListener("submit", function(event
 
 
 
-let city_name = document.getElementById("cityInput").value
+
 
 function fetchWeatherData() {
-
   city_name = document.getElementById("cityInput").value
+
+  if (localStorage.when != null
+  && parseInt(localStorage.when) + 10000 > Date.now()) {
+
+  let sec = Math.round((Date.now() - localStorage.when)/1000);
+
+  document.getElementById("weather_state").innerHTML = localStorage.weather_state;
+      document.getElementById("temp").innerHTML=localStorage.temp;
+      document.getElementById("city_name").innerHTML = localStorage.city_name;
+      document.getElementById("pressure").innerHTML = localStorage.pressure;
+  } else {
+    city_name = document.getElementById("cityInput").value
 
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`)
     .then(response => response.json())
@@ -29,6 +40,13 @@ function fetchWeatherData() {
     .catch(err => {
       console.log(err);
     });
+
+  }
+
+
+
+
+
 
 
 
