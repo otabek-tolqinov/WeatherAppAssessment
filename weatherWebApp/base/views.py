@@ -10,7 +10,7 @@ from .models import WeatherData
 
 
 API_KEY = "ade9f4cabec74e36b585f951ace85a05"
-API_URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
+# API_URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
 
 def send_data(request):
 
