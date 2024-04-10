@@ -22,6 +22,7 @@ def get_weather_by_city(request, city=None):
 
 
 
+
     if city:
         # Query the database for WeatherInfo objects with the given city name
         try:
