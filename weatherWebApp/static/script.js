@@ -29,7 +29,7 @@ function fetchWeatherData() {
     .then(response => {
       console.log(response);
       localStorage.setItem("city_name", JSON.stringify(city_name))
-      localStorage.setItem("temperature", JSON.stringify(response.main.temp))
+      localStorage.setItem("temperature", JSON.stringify(response.main.temperature))
       localStorage.setItem("pressure", JSON.stringify(city_name))
       localStorage.setItem("weather_state", JSON.stringify(response.weather[0].description))
       document.getElementById("weather_state").innerHTML = response.weather[0].description;
