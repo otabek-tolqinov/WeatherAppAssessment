@@ -24,7 +24,7 @@ def get_weather_by_city(request, city=None):
 
     if city:
         # Query the database for WeatherInfo objects with the given city name
-        weather_info = WeatherData.objects.all().first()
+        weather_info = WeatherData.objects.get(city=city)
         current_time = datetime.now(weather_info.updated_at.tzinfo)
 
         if current_time - weather_info.updated_at > timedelta(days=1):
@@ -49,7 +49,7 @@ def get_weather_by_city(request, city=None):
                         updated_at=datetime.now()
                     )
 
-                    weather_info = WeatherData.objects.all().first()
+                    weather_info = WeatherData.objects.get(city=city)
                     serialized_data = {
                         "city": weather_info.city,
                         "description": weather_info.description,
