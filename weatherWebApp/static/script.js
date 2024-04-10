@@ -29,13 +29,13 @@ function fetchWeatherData() {
     .then(response => {
       console.log(response);
       localStorage.setItem("city_name", JSON.stringify(city_name))
-      localStorage.setItem("temperature", JSON.stringify(response.main.temperature))
+      localStorage.setItem("temperature", JSON.stringify(response.temperature))
       localStorage.setItem("pressure", JSON.stringify(city_name))
-      localStorage.setItem("weather_state", JSON.stringify(response.weather[0].description))
-      document.getElementById("weather_state").innerHTML = response.weather[0].description;
-      document.getElementById("temp").innerHTML=response.main.temperature;
+      localStorage.setItem("weather_state", JSON.stringify(response.description))
+      document.getElementById("weather_state").innerHTML = response.description;
+      document.getElementById("temp").innerHTML=response.temperature;
       document.getElementById("icon").src = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
-      document.getElementById("pressure").innerHTML = response.main.pressure;
+      document.getElementById("pressure").innerHTML = response.pressure;
     })
     .catch(err => {
       console.log(err);
