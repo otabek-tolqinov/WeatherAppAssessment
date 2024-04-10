@@ -27,11 +27,22 @@ def get_weather_by_city(request, city=None):
         # Query the database for WeatherInfo objects with the given city name
         try:
             weather_info = WeatherData.objects.filter(city=city).first()
-            current_time = datetime.now(weather_info.updated_at.tzinfo)
         except:
             weather_info = None
 
-        if weather_info and current_time - weather_info.updated_at > timedelta(days=1):
+        if weather_info:
+            serialized_data = {
+                        "city": weather_info.city,
+                        "description": weather_info.description,
+                        "temperature": weather_info.temperature,
+                        "pressure": weather_info.pressure,
+                        "icon": weather_info.icon,
+                        "updated_at": weather_info.updated_at
+                    }
+                    # Return the serialized data as a JSON response
+            return JsonResponse(serialized_data)
+        else:
+
             API_URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'
             try:
                 response = requests.get(API_URL)
@@ -68,22 +79,22 @@ def get_weather_by_city(request, city=None):
             except Exception as e:
                 print(f"Error fetching weather data: {e}")
 
-        else:
-
-            weather_info = WeatherData.objects.filter(city=city).first()
 
 
-            if weather_info:
-                # Serialize the retrieved data
-                serialized_data = {
-                    "city": weather_info.city,
-                    "description": weather_info.description,
-                    "temperature": weather_info.temperature,
-                    "pressure": weather_info.pressure,
-                    "icon": weather_info.icon,
-                    "updated_at": weather_info.updated_at
-                }
-                # Return the serialized data as a JSON response
-                return JsonResponse(serialized_data)
-            else:
-                return JsonResponse({"error": "Weather information not found for the specified city"}, status=404)
+        # weather_info = WeatherData.objects.filter(city=city).first()
+        #
+        #
+        # if weather_info:
+        #     # Serialize the retrieved data
+        #     serialized_data = {
+        #         "city": weather_info.city,
+        #         "description": weather_info.description,
+        #         "temperature": weather_info.temperature,
+        #         "pressure": weather_info.pressure,
+        #         "icon": weather_info.icon,
+        #         "updated_at": weather_info.updated_at
+        #     }
+        #     # Return the serialized data as a JSON response
+        #     return JsonResponse(serialized_data)
+        # else:
+        #     return JsonResponse({"error": "Weather information not found for the specified city"}, status=404)
