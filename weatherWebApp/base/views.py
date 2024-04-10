@@ -24,10 +24,13 @@ def get_weather_by_city(request, city=None):
 
     if city:
         # Query the database for WeatherInfo objects with the given city name
-        weather_info = WeatherData.objects.get(city=city)
-        current_time = datetime.now(weather_info.updated_at.tzinfo)
+        try:
+            weather_info = WeatherData.objects.get(city=city)
+            current_time = datetime.now(weather_info.updated_at.tzinfo)
+        except:
+            weather_info = None
 
-        if current_time - weather_info.updated_at > timedelta(days=1):
+        if weather_info and current_time - weather_info.updated_at > timedelta(days=1):
             API_URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'
             try:
                 response = requests.get(API_URL)
@@ -40,7 +43,7 @@ def get_weather_by_city(request, city=None):
                         "icon": data['weather'][0]['icon']
                     }
 
-                    weather_info = WeatherData.objects.create(
+                    WeatherData.objects.create(
                         city=city,
                         description=updated_weather_data['description'],
                         temperature=updated_weather_data['temperature'],
