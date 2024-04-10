@@ -34,7 +34,7 @@ function fetchWeatherData() {
       localStorage.setItem("weather_state", JSON.stringify(response.description))
       document.getElementById("weather_state").innerHTML = response.description;
       document.getElementById("temp").innerHTML=response.temperature;
-      document.getElementById("icon").src = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
+      document.getElementById("icon").src = `https://openweathermap.org/img/wn/${response.icon}@2x.png`;
       document.getElementById("pressure").innerHTML = response.pressure;
     })
     .catch(err => {
