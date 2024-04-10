@@ -33,7 +33,7 @@ function fetchWeatherData() {
       localStorage.setItem("pressure", JSON.stringify(city_name))
       localStorage.setItem("weather_state", JSON.stringify(response.weather[0].description))
       document.getElementById("weather_state").innerHTML = response.weather[0].description;
-      document.getElementById("temp").innerHTML=(response.main.temp-273).toFixed(1);
+      document.getElementById("temp").innerHTML=response.main.temp-273;
       document.getElementById("icon").src = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
       document.getElementById("pressure").innerHTML = response.main.pressure;
     })
